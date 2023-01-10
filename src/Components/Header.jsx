@@ -14,9 +14,12 @@ import {
 import {
     NavLink
   } from 'react-router-dom';
+import ModalAdd from './ModalAdd';
 
 export default function Header() {
   const [showBasic, setShowBasic] = useState(false);
+
+
 
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
@@ -51,7 +54,13 @@ export default function Header() {
             </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
+
+        
+       
+
+          
         </MDBCollapse>
+       <ModalAdd/> 
       </MDBContainer>
     </MDBNavbar>
   );
