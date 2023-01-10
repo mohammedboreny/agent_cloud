@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import AddItemForm from './AddItemForm';
 
-function ModalAdd() {
+function Modalview() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -11,8 +10,8 @@ function ModalAdd() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+      <Button  className='btn btn-primary' variant="primary" onClick={handleShow}>
+        View
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -21,7 +20,8 @@ function ModalAdd() {
         </Modal.Header>
               <Modal.Body>
                   
-                  <AddItemForm/>
+
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -35,5 +35,5 @@ function ModalAdd() {
     </>
   );
 }
-export default ModalAdd;
+export default Modalview;
 

@@ -11,7 +11,12 @@ import {
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import Modalview from "./Modalview";
 function Items() {
+
+
+
+
   return (
     <MDBContainer fluid className="my-5">
       <MDBRow>
@@ -19,7 +24,7 @@ function Items() {
                   <MDBCard>
                       <FavoriteIcon  color="error"/> 
                       <FavoriteBorderOutlinedIcon/>
-            <MDBCardImage
+            <MDBCardImage 
               src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
               position="top"
             />
@@ -42,7 +47,7 @@ function Items() {
 
               <div class="d-flex justify-content-between mb-2">
                               <a href="" className="btn btn-danger"> delete</a>
-                              <a href="" className="btn btn-warning"> view</a>
+                              <Modalview/>
                               <a href="" className="btn btn-warning"> Add to cart</a>
               </div>
             </MDBCardBody>
