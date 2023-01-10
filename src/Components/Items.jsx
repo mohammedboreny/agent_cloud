@@ -31,9 +31,9 @@ function Items() {
             <MDBCardBody>
               <div className="d-flex justify-content-between">
                 <p className="small">
-                  <a href="#!" className="text-muted">
+                  
                     Laptops
-                  </a>
+                  
                 </p>
                 <p className="small text-danger">
                   <s>$1099</s>
