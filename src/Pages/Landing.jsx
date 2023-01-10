@@ -1,8 +1,12 @@
 import React from 'react'
+import Items from '../Components/Items'
 
 function Landing() {
   return (
-    <div>Landing</div>
+    <div className="container mt-5">
+      
+      <Items/>
+    </div>
   )
 }
 

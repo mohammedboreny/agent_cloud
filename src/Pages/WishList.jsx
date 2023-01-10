@@ -1,8 +1,12 @@
 import React from 'react'
+import WishListing from '../Components/WishList/WishListing'
 
 function WishList() {
   return (
-    <div>WishList</div>
+    <div>
+      
+      <WishListing/>
+    </div>
   )
 }
 
