@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   MDBContainer,
   MDBNavbar,
@@ -12,13 +12,17 @@ import {
   MDBCollapse
 } from 'mdb-react-ui-kit';
 import {
-    NavLink
-  } from 'react-router-dom';
+    NavLink, useNavigate
+} from 'react-router-dom';
+import Logout from './Logout';
 import ModalAdd from './ModalAdd';
+import { AuthContext } from '../context/AuthContext';
 
 export default function Header() {
   const [showBasic, setShowBasic] = useState(false);
-
+  const navigate = useNavigate();
+  // const { clientId } = AuthContext;
+  const { auth, setAuth } = useContext(AuthContext);
 
 
   return (
@@ -54,13 +58,12 @@ export default function Header() {
             </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
-
-        
-       
-
-          
         </MDBCollapse>
-       <ModalAdd/> 
+        {auth ?
+          <NavLink to="/login">Login </NavLink>
+          : <Logout/>
+       }
+
       </MDBContainer>
     </MDBNavbar>
   );

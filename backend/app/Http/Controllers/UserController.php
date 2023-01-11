@@ -80,7 +80,6 @@ class UserController extends Controller
             $user = User::create([
                 "name" => $request->name,
                 "email" => $request->email,
-                "google_id" => $request->google_id,
                 "userId" => $user->id,
             ]);
             $token = $user->createToken("auth_token")->plainTextToken;
@@ -88,7 +87,6 @@ class UserController extends Controller
                 "status" => "success",
                 "message" => "User LoggedIn successfully",
                 "token" => $token,
-                // "user" => Auth::user(),
                 "userId" => Auth::user()->id,
             ]);
         }

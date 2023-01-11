@@ -12,12 +12,15 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import Modalview from "./Modalview";
+import ModalAdd from "./ModalAdd";
 function Items() {
 
 
 
 
   return (
+    <>
+             <ModalAdd/> 
     <MDBContainer fluid className="my-5">
       <MDBRow>
         <MDBCol md="12" lg="4" className="mb-4 mb-lg-0">
@@ -31,9 +34,7 @@ function Items() {
             <MDBCardBody>
               <div className="d-flex justify-content-between">
                 <p className="small">
-                  
-                    Laptops
-                  
+                  Laptops
                 </p>
                 <p className="small text-danger">
                   <s>$1099</s>
@@ -54,7 +55,8 @@ function Items() {
           </MDBCard>
         </MDBCol>
       </MDBRow>
-    </MDBContainer>
+      </MDBContainer>
+      </>
   );
 }
 

@@ -6,12 +6,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
+import AuthContextProvider from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <App />
-    </Router>
+  <React.StrictMode>
+    <AuthContextProvider>
+      <Router>
+        <App />
+      </Router>
+    </AuthContextProvider>
+  </React.StrictMode>
 );
 
 

@@ -18,9 +18,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('image')->default('logos/profilepic.jpg');
             $table->rememberToken();
+            $table->enum("role", ["user"])->default("user");
             $table->timestamps();
+            $table->string('google_id')->nullable();
+            $table->string('is_premium')->default(0);
+            $table->softDeletes();
         });
     }
 
