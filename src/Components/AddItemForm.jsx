@@ -1,35 +1,73 @@
-import { useForm } from "react-hook-form";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 export default function AddItemForm() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
 
-    console.log(watch("example")); // watch input value by passing the name of it
+
+  const auth_user_id = localStorage.getItem("userId");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const registerAccount = {
+      name: name,
+      image: image,
+      price: price,
+      user_id: auth_user_id
+    };
+    // axios.get("/sanctum/csrf-cookie").then((res) => {
+    axios.post(`api/storeItem`, registerAccount).then((res) => {
+      console.log(res);
+      Swal.fire(" Submitted", "success");
+    });
+    // });
+  };
 
     return (
 
         
-        <form onSubmit={handleSubmit(onSubmit)}>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input  type="email" class="form-control" id="exampleInputEmail1"  {...register("example", { required: true })} />
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input  id="form12"  class="form-control" {...register("exampleRequired", { required: true })} />
-                {errors.exampleRequired && <span>This field is required</span>}
-            </div>
-            <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Upload Image</label>
-    <input  type="file" class="form-control" id="exampleInputEmail1"  {...register("example", { required: true })} />
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Price</label>
-    <input  id="form12"  class="form-control" {...register("exampleRequired", { required: true })} />
-                {errors.exampleRequired && <span>This field is required</span>}
-  </div>
- 
-  <button type="submit" class="btn btn-primary">Submit</button>
+      <form method="Post" onSubmit={handleSubmit}>
+        
+        <div className="mb-3">
+                    <label htmlFor="" className="form-label">
+                      {" "}
+            name
+          </label>
+                    <textarea
+                      type="text"
+                      onChange={(e) => setName(e.target.value)}
+                      className="form-control"
+                      id="name"
+                    ></textarea>
+        </div>
+        <div className="mb-3">
+                    <label htmlFor="" className="form-label">
+                      {" "}image </label>
+                    <input
+                      type="file"
+                      onChange={(e) => setImage(e.target.value)}
+                      className="form-control"
+                      id="image"
+                    />
+        </div>
+        <div className="mb-3">
+                    <label htmlFor="" className="form-label">
+                      {" "}
+                     price
+                    </label>
+                    <input
+                      type="text"
+                      onChange={(e) => setPrice(e.target.value)}
+                      className="form-control"
+                      id="price"
+          />             
+        </div>
+        <button type="submit" className="btn btn-primary">
+                      Add 
+                    </button>
 </form>
     );
 }

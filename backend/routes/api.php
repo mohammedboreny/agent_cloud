@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,29 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 // Auth Routes
 
 Route::post('/register', [UserController::class, "register"]);
 Route::post('/login', [UserController::class, "login"]);
-Route::post('/updateUser', [UserController::class, "update_user"]);
-Route::post('/updatePassword', [UserController::class, "update_password"]);
+
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', [UserController::class, "logout"]);
+});
+
+
+
+
+//  Items Routes
+Route::post('storeItem', [ItemsController::class, 'store']);
+Route::get('/items', [ItemsController::class, 'index']);
+// Route::post('updateItem/{id?}', [ItemsController::class, 'updateItem']);
+// Route::delete('deleteItem/{id?}', [ItemsController::class, 'deleteItem']);
+
+
+
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
 });

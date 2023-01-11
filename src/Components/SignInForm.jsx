@@ -149,7 +149,6 @@ function SignInForm() {
               </button>
               </div>
             </form>
-          <p className="text-center">Not a member? <a href="#!">Register</a></p>
 
         </MDBTabsPane>
 

@@ -60,8 +60,8 @@ export default function Header() {
           </MDBNavbarNav>
         </MDBCollapse>
         {auth ?
-          <NavLink to="/login">Login </NavLink>
-          : <Logout/>
+          <Logout/>
+          : <NavLink to="/login">Login </NavLink>
        }
 
       </MDBContainer>
